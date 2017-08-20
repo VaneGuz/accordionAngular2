@@ -1,0 +1,14 @@
+<div>
+<accordion>
+  <accordion-group heading="Static Header, initially expanded"
+                   [panelClass]="customClass"
+                   [isOpen]="isFirstOpen">
+    This content is straight in the template.
+  </accordion-group>
+  <accordion-group heading="{{proceso.name}}" *ngFor='let proceso of procesos'  panelClass="customClass">
+    <p>Proceso ID : {{proceso.id}}</p>
+    <p>Proceso name : {{proceso.name}}</p>
+  </accordion-group>
+
+</accordion>
+</div>

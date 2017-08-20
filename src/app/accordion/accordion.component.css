@@ -1,0 +1,9 @@
+/deep/ .card.customClass .card-header:hover,
+.panel.heading:hover {
+ background-color: #cbd5d8;
+
+}
+
+
+/* Dentro de la tarjeta padding: 1.25rem;
+/* En la primer tarjeta padding-top: 1.5rem !important; */
