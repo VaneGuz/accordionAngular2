@@ -1,15 +1,24 @@
-<div>
-<accordion>
-  <accordion-group heading="Static Header, initially expanded"
-                   [panelClass]="customClass"
-                   [isOpen]="isFirstOpen">
-    This content is straight in the template.
-  </accordion-group>
-  <accordion-group heading="{{proceso.name}}" *ngFor='let proceso of procesos'  panelClass="customClass" >
-    <p>Proceso ID : {{proceso.id}}</p>
-    <p>Proceso name : {{proceso.name}}</p>
- <button (click)="gotoDetail()">View Details</button>
-  </accordion-group>
+<div class="row">
+  <div class="col-md-{{medida}}">
+    <accordion>
+      <accordion-group heading="Static Header, initially expanded" [panelClass]="customClass" [isOpen]="isFirstOpen">
+        This content is straight in the template.
+      </accordion-group>
 
-</accordion>
+      <accordion-group heading="{{proceso.name}}" *ngFor='let proceso of procesos' (click)="onSelect(proceso)" panelClass="customClass">
+        <p>Proceso ID : {{proceso.id}}</p>
+        <p>Proceso name : {{proceso.name}}</p>
+
+        <button (click)="gotoDetail(proceso)">View Details</button>
+      </accordion-group>
+
+    </accordion>
+  </div>
+
+  <div *ngIf='detalle' class="col-md-6">
+
+    <p>HOLAAAAAAAAAAAAAAAAAA</p>
+
+  </div>
+
 </div>

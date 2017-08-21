@@ -13,24 +13,33 @@ import { Router } from '@angular/router';
   providers: [ProcesoService]
 })
 export class AccordionComponent implements OnInit {
-  ngOnInit(): void {
-    this.getProcesos();
-  }
   title = 'Accordion Component';
   procesos: Proceso[];
   selectedProceso: Proceso;
-  isFirstOpen: boolean = true;
+  isFirstOpen: any = true;
+  detalle = false;
+  medida: any = 'col-md-12';
+  ngOnInit(): void {
+    this.getProcesos();
+  }
 
   constructor(private router: Router, private procesoService: ProcesoService) { }
   getProcesos(): void {
-    this.procesoService.getProceso().then(procesos => this.procesos = procesos);
+    this.procesoService.getProcesos().then(procesos => this.procesos = procesos);
   }
   onSelect(proceso: Proceso): void {
     this.selectedProceso = proceso;
-    console.log("seleccted proceso " + this.selectedProceso.id);
+    console.log('selected proceso' + this.selectedProceso.id);
   }
+  gotoDetail(proceso: Proceso): void {
+    //  this.router.navigate(['/detail', proceso.id]);
+    this.detalle = !this.detalle;
+    if (this.detalle) {
+      this.medida = '6';
+    } else {
+      this.medida = '12';
+    }
 
-  gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedProceso.id]);
+    this.router.navigate(['/detail']);
   }
 }
