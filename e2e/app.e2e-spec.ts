@@ -1,14 +1,14 @@
-import { AccordionPage } from './app.po';
+import { PruebaPage } from './app.po';
 
-describe('accordion App', function() {
-  let page: AccordionPage;
+describe('prueba App', () => {
+  let page: PruebaPage;
 
   beforeEach(() => {
-    page = new AccordionPage();
+    page = new PruebaPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });
