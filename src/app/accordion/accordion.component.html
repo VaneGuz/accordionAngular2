@@ -5,9 +5,10 @@
                    [isOpen]="isFirstOpen">
     This content is straight in the template.
   </accordion-group>
-  <accordion-group heading="{{proceso.name}}" *ngFor='let proceso of procesos'  panelClass="customClass">
+  <accordion-group heading="{{proceso.name}}" *ngFor='let proceso of procesos'  panelClass="customClass" >
     <p>Proceso ID : {{proceso.id}}</p>
     <p>Proceso name : {{proceso.name}}</p>
+ <button (click)="gotoDetail()">View Details</button>
   </accordion-group>
 
 </accordion>
