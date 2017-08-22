@@ -1,11 +1,11 @@
 import { SecEjecucion } from './secEjecucion';
 
 export class Proceso {
-  id: number;
-  name: string;
   codigoProceso: string;
+  fecha_programacion: number;
+  listaParametros: string;
+  numSecEjecucion: SecEjecucion[];
   numSecProgramacion: string;
-  fechaProgramacion: number;
 }
 //listSecEjecucion: SecEjecucion[];
 //  listParametros: string[];

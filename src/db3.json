@@ -1,0 +1,294 @@
+{
+    "13|51": {
+        "codigoProceso": "13",
+        "fecha_programacion": null,
+        "listaParametros": {
+            "CDTIPO_GENERACION_INT": "G",
+            "CDRAMOCE": "088",
+            "NMPERIODOCE": "201112",
+            "CDGRUPO_PARTICIP": "1",
+            "CDCOMPANIACE": "02"
+        },
+        "numSecEjecucion": [
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "CARLPASE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 43,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 0
+            }
+        ],
+        "numSecProgramacion": "51"
+    },
+    "13|50": {
+        "codigoProceso": "13",
+        "fecha_programacion": null,
+        "listaParametros": {
+            "CDTIPO_GENERACION_INT": "G",
+            "CDRAMOCE": "087",
+            "NMPERIODOCE": "201005",
+            "CDGRUPO_PARTICIP": "1",
+            "CDCOMPANIACE": "02"
+        },
+        "numSecEjecucion": [
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "ANAMGIHE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 29,
+                "numRegistrosConError": 1,
+                "numRegistrosExitosos": 28
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "ANAMGIHE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 29,
+                "numRegistrosConError": 1,
+                "numRegistrosExitosos": 28
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "ANAMGIHE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 29,
+                "numRegistrosConError": 1,
+                "numRegistrosExitosos": 28
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "ANAMGIHE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 29,
+                "numRegistrosConError": 1,
+                "numRegistrosExitosos": 28
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "3",
+                "dsLoginEjecuta": "ANAMGIHE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 29,
+                "numRegistrosConError": 1,
+                "numRegistrosExitosos": 28
+            }
+        ],
+        "numSecProgramacion": "50"
+    },
+    "13|49": {
+        "codigoProceso": "13",
+        "fecha_programacion": null,
+        "listaParametros": {
+            "CDTIPO_GENERACION_INT": "G",
+            "CDRAMOCE": "093",
+            "NMPERIODOCE": "200912",
+            "CDGRUPO_PARTICIP": "1",
+            "CDCOMPANIACE": "02"
+        },
+        "numSecEjecucion": [
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "2",
+                "dsLoginEjecuta": "ANAMGIHE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 36,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 36
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "2",
+                "dsLoginEjecuta": "ANAMGIHE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 36,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 36
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "2",
+                "dsLoginEjecuta": "ANAMGIHE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 36,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 36
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "2",
+                "dsLoginEjecuta": "ANAMGIHE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 36,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 36
+            },
+            {
+                "codigoEntidad": "13",
+                "codigoEstado": "2",
+                "dsLoginEjecuta": "ANAMGIHE",
+                "fechaFinEjecucion": null,
+                "fechaInicioEjecucion": null,
+                "numRegistrosAProcesar": 36,
+                "numRegistrosConError": 0,
+                "numRegistrosExitosos": 36
+            }
+        ],
+        "numSecProgramacion": "49"
+    }
+}

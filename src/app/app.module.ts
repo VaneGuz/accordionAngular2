@@ -31,7 +31,7 @@ const routes: Routes = [
     HttpModule,
     AccordionModule.forRoot(),
     RouterModule.forRoot(routes),
-    InMemoryWebApiModule.forRoot(InMemoryDataService)
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
   ],
   providers: [],
   bootstrap: [AppComponent],

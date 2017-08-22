@@ -6,11 +6,9 @@
       </accordion-group>
 
       <accordion-group heading="{{proceso.name}}" *ngFor='let proceso of procesos' (click)="onSelect(proceso)" panelClass="customClass">
-        <p>Proceso ID : {{proceso.id}}</p>
-        <p>Proceso name : {{proceso.name}}</p>
         <p>Código del Proceso : {{proceso.codigoProceso}}</p>
         <p>Secuencia de Programación : {{proceso.numSecProgramacion}}</p>
-        <p>Fecha de Programación : {{proceso.fechaProgramacion}}</p>
+        <p>Fecha de Programación : {{proceso.fecha_programacion}}</p>
 
         <button (click)="gotoDetail(proceso)">View Details</button>
         <button (click)="gotoLog(proceso)">View Log</button>
@@ -20,7 +18,7 @@
   </div>
 
   <div *ngIf='detalle' class="col-md-6">
-    <div *ngFor='let ejecucion of selectedProceso.listSecEjecucion'>Ejecuciones
+    <div *ngFor='let ejecucion of selectedProceso.numSecEjecucion'>Ejecuciones
       <p>Codigo de Entidad: {{ejecucion.codigoEntidad}}</p>
     </div>
     <button (click)="close()">Close</button>

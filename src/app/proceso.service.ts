@@ -2,22 +2,55 @@ import { Injectable } from '@angular/core';
 import { Proceso } from './data/proceso';
 import { PROCESO } from './mock-proceso';
 import { Headers, Http } from '@angular/http';
+import 'rxjs/Rx'; //get everything from Rx
 import 'rxjs/add/operator/toPromise';
+import { RequestOptions } from '@angular/http';
+import {
+  Observable,
+  Subject
+} from 'rxjs/Rx';
+
 @Injectable()
 export class ProcesoService {
-  private procesosUrl = 'http://127.0.0.1:3000/1351/';  // URL to web api
+  private procesosUrl = 'http://localhost:7001/PlataformaRentas/api/monitor-masivos/consultar-procesos';  // URL to web api
   constructor(private http: Http) { }
-  /*
+
+  private jsonFileURL: string = "api/heroes";
+  resp: Promise<Proceso[]>;
+  /*  getProcesos(): Promise<Proceso[]> {
+      return this.http.get(this.procesosUrl)
+        .toPromise()
+        .then(response => response.json().data as Proceso[])
+        .catch(this.handleError);
+    }*/
     getProcesos(): Promise<Proceso[]> {
-      return Promise.resolve(PROCESO);
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+      this.resp = this.http.post(this.procesosUrl, null, options).toPromise()
+        .then(response => response.json() as Proceso[])
+        .catch(this.handleError);
+      console.log("Post ejecutado");
+        console.log("Post ejecutado");
+      return this.resp;
     }
-  */
-  getProcesos(): Promise<Proceso[]> {
-    return this.http.get(this.procesosUrl)
-      .toPromise()
-      .then(response => response.json().data as Proceso[])
-      .catch(this.handleError);
+/*
+  getProcesos(): Observable<Proceso[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    this.resp = this.http.post(this.procesosUrl, null, options).map(response => response.json().data as Proceso[]).catch(this.handleError);
+    console.log("Post ejecutado");
+    console.log("Post ejecutado");
+    return this.resp;
   }
+  */
+
+
+
+  /*private extractData(res: Response) {
+  let body = res.json();
+      return body.data || {};
+  }*/
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
@@ -30,11 +63,7 @@ export class ProcesoService {
     });
   }
 
-  /*getProceso(id: number): Promise<Proceso> {
-    return this.getProcesos()
-      .then(procesos => procesos.find(proceso => proceso.id === id));
-  }
-*/
+
   getProceso(id: number): Promise<Proceso> {
     const url = `${this.procesosUrl}/${id}`;
     return this.http.get(url)
@@ -43,3 +72,23 @@ export class ProcesoService {
   }
 
 }
+
+/*
+  getProcesos(): Promise<Proceso[]> {
+    return Promise.resolve(PROCESO);
+  }
+*/
+
+/*getProceso(id: number): Promise<Proceso> {
+  return this.getProcesos()
+    .then(procesos => procesos.find(proceso => proceso.id === id));
+}
+*/
+/*getProcesos(): Observable<Proceso[]> {
+  return this.http.get(this.jsonFileURL)
+  .map((response: Response) => {
+          return <Proceso[]> response.json()
+      })
+    .catch(this.handleError);
+}
+*/

@@ -26,12 +26,13 @@ export class AccordionComponent implements OnInit {
   }
 
   constructor(private router: Router, private procesoService: ProcesoService) { }
+
   getProcesos(): void {
     this.procesoService.getProcesos().then(procesos => this.procesos = procesos);
   }
   onSelect(proceso: Proceso): void {
     this.selectedProceso = proceso;
-    console.log('selected proceso' + this.selectedProceso.id);
+
   }
   gotoDetail(proceso: Proceso): void {
     //  this.router.navigate(['/detail', proceso.id]);
