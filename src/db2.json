@@ -1,0 +1,23 @@
+{
+  "1351": {
+    "id": 1,
+    "name": "generacion procesos masivos",
+    "codigoProceso": "95",
+    "numSecProgramacion": "34",
+    "fechaProgramacion": 2018
+  },
+  "1352": {
+    "id": 2,
+    "name": "carga procesos masivos",
+    "codigoProceso": "58",
+    "numSecProgramacion": "52",
+    "fechaProgramacion": 2014
+  },
+  "1353": {
+    "id": 3,
+    "name": "Evaluacion procesos masivos",
+    "codigoProceso": "15",
+    "numSecProgramacion": "25",
+    "fechaProgramacion": 2017
+  }
+}

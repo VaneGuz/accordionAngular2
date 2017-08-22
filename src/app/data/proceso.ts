@@ -7,6 +7,5 @@ export class Proceso {
   numSecProgramacion: string;
   fechaProgramacion: number;
 }
-
-//  listSecEjecucion: SecEjecucion[];
+//listSecEjecucion: SecEjecucion[];
 //  listParametros: string[];

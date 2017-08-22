@@ -20,15 +20,15 @@
   </div>
 
   <div *ngIf='detalle' class="col-md-6">
-
-    <p>Ejecuciones</p>
-
+    <div *ngFor='let ejecucion of selectedProceso.listSecEjecucion'>Ejecuciones
+      <p>Codigo de Entidad: {{ejecucion.codigoEntidad}}</p>
+    </div>
+    <button (click)="close()">Close</button>
   </div>
 
   <div *ngIf='log' class="col-md-6">
-
     <p>LOG</p>
-
+    <button (click)="close()">Close</button>
   </div>
 
 </div>

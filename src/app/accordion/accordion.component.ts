@@ -20,6 +20,7 @@ export class AccordionComponent implements OnInit {
   detalle = false;
   log = false;
   medida: any = 'col-md-12';
+
   ngOnInit(): void {
     this.getProcesos();
   }
@@ -34,25 +35,34 @@ export class AccordionComponent implements OnInit {
   }
   gotoDetail(proceso: Proceso): void {
     //  this.router.navigate(['/detail', proceso.id]);
+    if (!this.detalle) {
+      this.detalle = !this.detalle;
+    }
     this.log = false;
-    this.detalle = !this.detalle;
     if (this.detalle) {
       this.medida = '6';
     } else {
       this.medida = '12';
     }
-    this.router.navigate(['/detail']);
+
   }
   gotoLog(proceso: Proceso): void {
     //  this.router.navigate(['/detail', proceso.id]);
+    if (!this.log) {
+      this.log = !this.log;
+    }
     this.detalle = false;
-    this.log = !this.log;
     if (this.log) {
       this.medida = '6';
     } else {
       this.medida = '12';
     }
-    this.router.navigate(['/detail']);
+
+  }
+  close() {
+    this.log = false;
+    this.detalle = false;
+    this.medida = '12';
   }
 
 

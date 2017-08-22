@@ -5,16 +5,17 @@ import { HttpModule } from '@angular/http';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AppComponent } from './app.component';
 import { EjecucionComponent } from './ejecucion/ejecucion.component';
-import {AccordionComponent} from './accordion/accordion.component';
-import {FilterComponent} from './filter/filter.component';
+import { AccordionComponent } from './accordion/accordion.component';
+import { FilterComponent } from './filter/filter.component';
 import { RouterModule, Routes } from '@angular/router';
-
+import { InMemoryDataService } from './in-memory-data.service';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 const routes: Routes = [
-//  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-//  { path: 'dashboard',  component: DashboardComponent },
+  //  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  //  { path: 'dashboard',  component: DashboardComponent },
   { path: 'detail/:id', component: EjecucionComponent },
-//  { path: 'procesos',     component: HeroesComponent }
+  //  { path: 'procesos',     component: HeroesComponent }
 ];
 
 @NgModule({
@@ -29,10 +30,11 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     AccordionModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [ RouterModule ]
+  exports: [RouterModule]
 })
 export class AppModule { }
