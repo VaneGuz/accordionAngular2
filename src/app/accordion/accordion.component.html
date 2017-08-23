@@ -1,32 +1,66 @@
 <div class="row">
   <div class="col-md-{{medida}}">
     <accordion>
-      <accordion-group heading="Static Header, initially expanded" [panelClass]="customClass" [isOpen]="isFirstOpen">
-        This content is straight in the template.
-      </accordion-group>
 
-      <accordion-group heading="{{proceso.name}}" *ngFor='let proceso of procesos' (click)="onSelect(proceso)" panelClass="customClass">
-        <p>Código del Proceso : {{proceso.codigoProceso}}</p>
-        <p>Secuencia de Programación : {{proceso.numSecProgramacion}}</p>
-        <p>Fecha de Programación : {{proceso.fecha_programacion}}</p>
-
-        <button (click)="gotoDetail(proceso)">View Details</button>
-        <button (click)="gotoLog(proceso)">View Log</button>
+      <accordion-group heading="{{proceso.dsproceso}} - {{proceso.numSecProgramacion}}" *ngFor='let proceso of procesos' (click)="onSelect(proceso)" panelClass="customClass" [isOpen]="isFirstOpen">
+        <div class="col-md-8">
+          <p>Código del Proceso : {{proceso.codigoProceso}}</p>
+          <p>Secuencia de Programación : {{proceso.numSecProgramacion}}</p>
+          <p>Fecha de Programación : {{proceso.fecha_programacion}}</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <button (click)="gotoDetail(proceso)" class="btn btn-primary detailbtn">Ejecuciones</button>
+          <button (click)="gotoLog(proceso)" class="btn btn-danger logbtn">LOG</button>
+        </div>
       </accordion-group>
 
     </accordion>
   </div>
 
   <div *ngIf='detalle' class="col-md-6">
-    <div *ngFor='let ejecucion of selectedProceso.numSecEjecucion'>Ejecuciones
-      <p>Codigo de Entidad: {{ejecucion.codigoEntidad}}</p>
+    <h3 class="text-center ejecucion">EJECUCIONES</h3>
+    <div *ngFor='let ejecucion of selectedProceso.numSecEjecucion'>
+      <div class="card">
+        <div>
+          <div class="col-md-4">
+            <p>Codigo de Entidad: {{ejecucion.codigoEntidad}}</p>
+          </div>
+          <div class="col-md-4">
+            <p>Codigo de Estado: {{ejecucion.codigoEstado}}</p>
+          </div>
+          <div class="col-md-4">
+            <p>Ejecuta: {{ejecucion.dsLoginEjecuta}}</p>
+          </div>
+        </div>
+        <div>
+        <div class="col-md-6">
+            <p>Fecha inicio de ejecución: {{ejecucion.fechaInicioEjecucion}}</p>
+          </div>
+        </div>
+        <div>
+          <p>Registros a procesar: {{ejecucion.numRegistrosAProcesar}}</p>
+        </div>
+        <div>
+          <p>Registros exitosos: {{ejecucion.numRegistrosConError}}</p>
+          <p>Registros con error: {{ejecucion.numRegistrosExitosos}}</p>
+        </div>
+      </div>
     </div>
-    <button (click)="close()">Close</button>
+    <div class="text-center">
+      <button (click)="close()" class="btn btn-danger ">Cerrar</button>
+    </div>
   </div>
 
+
   <div *ngIf='log' class="col-md-6">
-    <p>LOG</p>
-    <button (click)="close()">Close</button>
+    <h3 class="text-center ejecucion">LOG DEL PROCESO</h3>
+    <div class="card logdiv text-center">
+
+    </div>
+    <div class="text-center">
+      <button (click)="close()" class="btn btn-danger ">Cerrar</button>
+    </div>
+
   </div>
 
 </div>

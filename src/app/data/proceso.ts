@@ -6,6 +6,9 @@ export class Proceso {
   listaParametros: string;
   numSecEjecucion: SecEjecucion[];
   numSecProgramacion: string;
+  dsproceso: string;
 }
+
+
 //listSecEjecucion: SecEjecucion[];
 //  listParametros: string[];

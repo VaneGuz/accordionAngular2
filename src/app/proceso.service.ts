@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Proceso } from './data/proceso';
 import { PROCESO } from './mock-proceso';
 import { Headers, Http } from '@angular/http';
-import 'rxjs/Rx'; //get everything from Rx
+import 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 import { RequestOptions } from '@angular/http';
 import {
@@ -13,36 +13,37 @@ import {
 @Injectable()
 export class ProcesoService {
   private procesosUrl = 'http://localhost:7001/PlataformaRentas/api/monitor-masivos/consultar-procesos';  // URL to web api
+  private procesosMock = 'api/heroes';
   constructor(private http: Http) { }
 
-  private jsonFileURL: string = "api/heroes";
   resp: Promise<Proceso[]>;
-  /*  getProcesos(): Promise<Proceso[]> {
-      return this.http.get(this.procesosUrl)
+  getProcesos(): Promise<Proceso[]> {
+      return this.http.get(this.procesosMock)
         .toPromise()
         .then(response => response.json().data as Proceso[])
         .catch(this.handleError);
-    }*/
-    getProcesos(): Promise<Proceso[]> {
-      let headers = new Headers({ 'Content-Type': 'application/json' });
-      let options = new RequestOptions({ headers: headers });
-      this.resp = this.http.post(this.procesosUrl, null, options).toPromise()
-        .then(response => response.json() as Proceso[])
-        .catch(this.handleError);
-      console.log("Post ejecutado");
-        console.log("Post ejecutado");
-      return this.resp;
     }
-/*
-  getProcesos(): Observable<Proceso[]> {
+    /*
+  getProcesos(): Promise<Proceso[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    this.resp = this.http.post(this.procesosUrl, null, options).map(response => response.json().data as Proceso[]).catch(this.handleError);
-    console.log("Post ejecutado");
-    console.log("Post ejecutado");
+    this.resp = this.http.post(this.procesosUrl, null, options).toPromise()
+      .then(response => response.json() as Proceso[])
+      .catch(this.handleError);
+    console.log('Post ejecutado');
+
     return this.resp;
-  }
-  */
+  }*/
+  /*
+    getProcesos(): Observable<Proceso[]> {
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+      this.resp = this.http.post(this.procesosUrl, null, options).map(response => response.json().data as Proceso[]).catch(this.handleError);
+      console.log("Post ejecutado");
+      console.log("Post ejecutado");
+      return this.resp;
+    }
+    */
 
 
 
