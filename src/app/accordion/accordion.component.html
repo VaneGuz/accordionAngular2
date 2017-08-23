@@ -2,7 +2,7 @@
   <div class="col-md-{{medida}}">
     <accordion>
 
-      <accordion-group heading="{{proceso.dsproceso}} - {{proceso.numSecProgramacion}}" *ngFor='let proceso of procesos' (click)="onSelect(proceso)" panelClass="customClass" [isOpen]="isFirstOpen">
+      <accordion-group heading="{{proceso.nombreProceso}} - Secuencia: {{proceso.numSecProgramacion}}" *ngFor='let proceso of procesos' (click)="onSelect(proceso)" panelClass="customClass" [isOpen]="isFirstOpen">
         <div class="col-md-8">
           <p>Código del Proceso : {{proceso.codigoProceso}}</p>
           <p>Secuencia de Programación : {{proceso.numSecProgramacion}}</p>
@@ -26,15 +26,18 @@
             <p>Codigo de Entidad: {{ejecucion.codigoEntidad}}</p>
           </div>
           <div class="col-md-4">
-            <p>Codigo de Estado: {{ejecucion.codigoEstado}}</p>
+            <p>Codigo de Estado:{{ejecucion.codigoEstado}}</p>
           </div>
           <div class="col-md-4">
             <p>Ejecuta: {{ejecucion.dsLoginEjecuta}}</p>
           </div>
         </div>
         <div>
-        <div class="col-md-6">
+          <div class="col-md-6">
             <p>Fecha inicio de ejecución: {{ejecucion.fechaInicioEjecucion}}</p>
+          </div>
+          <div class="col-md-6">
+            <p>Fecha fin de ejecución: {{ejecucion.fechaFinEjecucion}}</p>
           </div>
         </div>
         <div>
@@ -44,6 +47,23 @@
           <p>Registros exitosos: {{ejecucion.numRegistrosConError}}</p>
           <p>Registros con error: {{ejecucion.numRegistrosExitosos}}</p>
         </div>
+        <!-- PROGRESS BAR -->
+
+        <!-- PROGRESS BAR -->
+
+      <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
+            
+          </div>
+          <div class="progress-bar progress-bar-warning" role="progressbar" style="width:10%">
+
+          </div>
+          <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+
+          </div>
+        </div>
+
+        <!-- PROGRESS BAR -->
       </div>
     </div>
     <div class="text-center">

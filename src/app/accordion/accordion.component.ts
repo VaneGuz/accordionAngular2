@@ -4,6 +4,8 @@ import { PROCESO } from '../mock-proceso';
 import { ProcesoService } from '../proceso.service';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SecEjecucion } from '../data/secEjecucion';
+
 
 
 @Component({
@@ -16,11 +18,12 @@ export class AccordionComponent implements OnInit {
   title = 'Accordion Component';
   procesos: Proceso[];
   selectedProceso: Proceso;
+  secEjecucion: SecEjecucion;
   isFirstOpen: any = true;
   detalle = false;
   log = false;
   medida: any = 'col-md-12';
-
+  registros: any[];
   ngOnInit(): void {
     this.getProcesos();
   }
@@ -65,6 +68,14 @@ export class AccordionComponent implements OnInit {
     this.detalle = false;
     this.medida = '12';
   }
+  percentages(ejecucion: SecEjecucion): any[] {
+    this.registros = [];
+    this.registros.push(ejecucion.numRegistrosAProcesar);
+    this.registros.push(ejecucion.numRegistrosConError);
+    this.registros.push(ejecucion.numRegistrosExitosos);
+    return this.registros;
+  }
+
 
 
 }
