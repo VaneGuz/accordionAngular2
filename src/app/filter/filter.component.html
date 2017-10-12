@@ -1,5 +1,10 @@
 <h3 class="text-center title">FILTROS</h3>
 <div class="card" >
-
+  <form action="">
+    <input name="options" ng-control="options" type="radio"  [checked]="true"  (click)="onChangeEstadoProceso(1)" >Ejecutado<br/>
+    <input name="options" ng-control="options" type="radio"   [checked]="false" (click)="onChangeEstadoProceso(2)" >Programado<br/>
+    </form>
+<p>{{estadoProceso.snEjecutado}}</p>
+<p>{{estadoProceso.snProgramado}}</p>
 
 </div>
