@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { SecEjecucion } from '../data/secEjecucion';
 
 
-
 @Component({
   selector: 'app-accordion',
   templateUrl: './accordion.component.html',
@@ -24,6 +23,7 @@ export class AccordionComponent implements OnInit {
   log = false;
   medida: any = 'col-md-12';
   registros: any[];
+  p = 1;
   ngOnInit(): void {
     this.getProcesos();
   }

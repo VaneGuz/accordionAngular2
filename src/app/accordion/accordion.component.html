@@ -1,20 +1,22 @@
 <div class="row">
   <div class="col-md-{{medida}}">
-    <accordion>
+    <ul>
+       <accordion>
+         <accordion-group heading="{{proceso.nombreProceso}} - Secuencia: {{proceso.numSecProgramacion}}" *ngFor='let proceso of procesos | paginate: { itemsPerPage: 5, currentPage: p }' (click)="onSelect(proceso)" panelClass="customClass" [isOpen]="isFirstOpen">
+           <div class="col-md-8">
+             <p>Código del Proceso : {{proceso.codigoProceso}}</p>
+             <p>Secuencia de Programación : {{proceso.numSecProgramacion}}</p>
+             <p>Fecha de Programación : {{proceso.fecha_programacion}}</p>
+           </div>
+           <div class="col-md-4 text-center">
+             <button (click)="gotoDetail(proceso)" class="btn btn-primary detailbtn">Ejecuciones</button>
+             <button (click)="gotoLog(proceso)" class="btn btn-danger logbtn">LOG</button>
+           </div>
+         </accordion-group>
+       </accordion>
+   </ul>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
-      <accordion-group heading="{{proceso.nombreProceso}} - Secuencia: {{proceso.numSecProgramacion}}" *ngFor='let proceso of procesos' (click)="onSelect(proceso)" panelClass="customClass" [isOpen]="isFirstOpen">
-        <div class="col-md-8">
-          <p>Código del Proceso : {{proceso.codigoProceso}}</p>
-          <p>Secuencia de Programación : {{proceso.numSecProgramacion}}</p>
-          <p>Fecha de Programación : {{proceso.fecha_programacion}}</p>
-        </div>
-        <div class="col-md-4 text-center">
-          <button (click)="gotoDetail(proceso)" class="btn btn-primary detailbtn">Ejecuciones</button>
-          <button (click)="gotoLog(proceso)" class="btn btn-danger logbtn">LOG</button>
-        </div>
-      </accordion-group>
-
-    </accordion>
   </div>
 
   <div *ngIf='detalle' class="col-md-6">
@@ -53,7 +55,7 @@
 
       <div class="progress">
           <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
-            
+
           </div>
           <div class="progress-bar progress-bar-warning" role="progressbar" style="width:10%">
 

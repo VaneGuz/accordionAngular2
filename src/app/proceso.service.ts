@@ -17,14 +17,14 @@ export class ProcesoService {
   constructor(private http: Http) { }
 
   resp: Promise<Proceso[]>;
-    /*getProcesos(): Promise<Proceso[]> {
-      return this.http.get(this.procesosMock)
-        .toPromise()
-        .then(response => response.json().data as Proceso[])
-        .catch(this.handleError);
-    }*/
-
   getProcesos(): Promise<Proceso[]> {
+    return this.http.get(this.procesosMock)
+      .toPromise()
+      .then(response => response.json().data as Proceso[])
+      .catch(this.handleError);
+  }
+
+  /*getProcesos(): Promise<Proceso[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     this.resp = this.http.post(this.procesosUrl, null, options).toPromise()
@@ -33,7 +33,7 @@ export class ProcesoService {
     console.log('Post ejecutado');
 
     return this.resp;
-  }
+  }*/
   /*
     getProcesos(): Observable<Proceso[]> {
       let headers = new Headers({ 'Content-Type': 'application/json' });

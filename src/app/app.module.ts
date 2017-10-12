@@ -10,6 +10,7 @@ import { FilterComponent } from './filter/filter.component';
 import { RouterModule, Routes } from '@angular/router';
 import { InMemoryDataService } from './in-memory-data.service';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 const routes: Routes = [
   //  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -31,7 +32,8 @@ const routes: Routes = [
     HttpModule,
     AccordionModule.forRoot(),
     RouterModule.forRoot(routes),
-    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent],
