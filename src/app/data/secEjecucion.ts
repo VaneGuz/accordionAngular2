@@ -7,4 +7,7 @@ export class SecEjecucion {
   numRegistrosAProcesar: number;
   numRegistrosConError: number;
   numRegistrosExitosos: number;
+  exitosos: number;
+  error: number;
+  pendientes: number;
 }

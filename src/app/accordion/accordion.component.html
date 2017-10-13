@@ -15,13 +15,13 @@
          </accordion-group>
        </accordion>
    </ul>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-
+   <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    
   </div>
 
   <div *ngIf='detalle' class="col-md-6">
     <h3 class="text-center ejecucion">EJECUCIONES</h3>
-    <div *ngFor='let ejecucion of selectedProceso.numSecEjecucion'>
+    <div *ngFor='let ejecucion of selectedProceso.numSecEjecucion' >
       <div class="card">
         <div>
           <div class="col-md-4">
@@ -46,21 +46,21 @@
           <p>Registros a procesar: {{ejecucion.numRegistrosAProcesar}}</p>
         </div>
         <div>
-          <p>Registros exitosos: {{ejecucion.numRegistrosConError}}</p>
-          <p>Registros con error: {{ejecucion.numRegistrosExitosos}}</p>
+          <p>Registros exitosos: {{ejecucion.numRegistrosExitosos}}</p>
+          <p>Registros con error: {{ejecucion.numRegistrosConError}}</p>
         </div>
         <!-- PROGRESS BAR -->
 
         <!-- PROGRESS BAR -->
 
       <div class="progress">
-          <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
+          <div class="progress-bar progress-bar-success" role="progressbar"  [ngStyle]="{'width' : ejecucion.exitosos +'%'}"> {{ejecucion.numRegistrosExitosos}}
 
           </div>
-          <div class="progress-bar progress-bar-warning" role="progressbar" style="width:10%">
+          <div class="progress-bar progress-bar-warning" role="progressbar" [ngStyle]="{'width' : ejecucion.pendientes +'%'}">{{ejecucion.numRegistrosAProcesar - (ejecucion.numRegistrosExitosos+  ejecucion.numRegistrosConError)}}
 
           </div>
-          <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+          <div class="progress-bar progress-bar-danger" role="progressbar" [ngStyle]="{'width' : ejecucion.error +'%'}">{{ejecucion.numRegistrosConError}}
 
           </div>
         </div>

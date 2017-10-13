@@ -4,7 +4,6 @@
     <input name="options" ng-control="options" type="radio"  [checked]="true"  (click)="onChangeEstadoProceso(1)" >Ejecutado<br/>
     <input name="options" ng-control="options" type="radio"   [checked]="false" (click)="onChangeEstadoProceso(2)" >Programado<br/>
     </form>
-<p>{{estadoProceso.snEjecutado}}</p>
-<p>{{estadoProceso.snProgramado}}</p>
 
+<button (click)="Consultar(proceso)" class="btn btn-primary detailbtn">Consultar</button>
 </div>

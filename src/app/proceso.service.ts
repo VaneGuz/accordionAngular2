@@ -13,7 +13,8 @@ import {
 @Injectable()
 export class ProcesoService {
   private procesosUrl = 'http://localhost:7001/PlataformaRentas/api/monitor-masivos/consultar-procesos';  // URL to web api
-  private procesosMock = 'api/heroes';
+  private procesosMock = 'api/procesos';
+
   constructor(private http: Http) { }
 
   resp: Promise<Proceso[]>;
@@ -38,7 +39,8 @@ export class ProcesoService {
     getProcesos(): Observable<Proceso[]> {
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
-      this.resp = this.http.post(this.procesosUrl, null, options).map(response => response.json().data as Proceso[]).catch(this.handleError);
+      this.resp = this.http.post(this.procesosUrl, null, options).map(response => response.json().data as Proceso[])
+        .catch(this.handleError);
       console.log("Post ejecutado");
       console.log("Post ejecutado");
       return this.resp;

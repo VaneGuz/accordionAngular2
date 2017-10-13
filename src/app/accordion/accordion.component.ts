@@ -24,17 +24,39 @@ export class AccordionComponent implements OnInit {
   medida: any = 'col-md-12';
   registros: any[];
   p = 1;
+  ejecucion: SecEjecucion;
+  progressBar = {
+    success: 70,
+    warning: 30,
+    danger: 10
+  };
+  constructor(private router: Router, private procesoService: ProcesoService) { }
   ngOnInit(): void {
     this.getProcesos();
   }
 
-  constructor(private router: Router, private procesoService: ProcesoService) { }
-
+  calcularProgressBar(ejecuciones: SecEjecucion[]) {
+    for (let i = 0; i < ejecuciones.length; i++) {
+      console.log('Entro ejecuciones;' + i);
+      this.ejecucion = ejecuciones[i];
+      this.ejecucion.exitosos = (100 * this.ejecucion.numRegistrosExitosos) / this.ejecucion.numRegistrosAProcesar;
+      this.ejecucion.error = (100 * this.ejecucion.numRegistrosConError) / this.ejecucion.numRegistrosAProcesar;
+      this.ejecucion.pendientes = (100 * (this.ejecucion.numRegistrosAProcesar - (this.ejecucion.numRegistrosExitosos +
+        this.ejecucion.numRegistrosConError))) / this.ejecucion.numRegistrosAProcesar;
+      /*    console.log('Entro exitosos;' + this.ejecucion.exitosos);
+          console.log('Entro error;' + this.ejecucion.error);
+          console.log('Entro pendientes;' + this.ejecucion.pendientes);*/
+    }
+  }
   getProcesos(): void {
     this.procesoService.getProcesos().then(procesos => this.procesos = procesos);
   }
+
   onSelect(proceso: Proceso): void {
     this.selectedProceso = proceso;
+    if (proceso.numSecEjecucion[0].exitosos == null) {
+      this.calcularProgressBar(proceso.numSecEjecucion);
+    }
 
   }
   gotoDetail(proceso: Proceso): void {

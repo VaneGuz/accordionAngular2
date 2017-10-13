@@ -10,5 +10,4 @@ export class Proceso {
 }
 
 
-//listSecEjecucion: SecEjecucion[];
 //  listParametros: string[];
