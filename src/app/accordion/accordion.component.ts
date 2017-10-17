@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Proceso } from '../data/proceso';
+import { Log } from '../data/log';
 import { Consulta } from '../data/consulta';
 import { ProcesoService } from '../proceso.service';
 import { OnInit } from '@angular/core';
@@ -25,15 +26,18 @@ export class AccordionComponent implements OnInit {
   medida: any = 'col-md-12';
   registros: any[];
   p = 1;
+  d = 1;
   ejecucion: SecEjecucion;
+  logs: Log[];
   progressBar = {
     success: 70,
     warning: 30,
     danger: 10
   };
-  constructor(private router: Router, private procesoService: ProcesoService) {}
+  constructor(private router: Router, private procesoService: ProcesoService) { }
   ngOnInit(): void {
-   this.getProcesos(this.consulta);
+    this.getProcesos();
+    this.getLog();
   }
 
   calcularProgressBar(ejecuciones: SecEjecucion[]) {
@@ -43,15 +47,21 @@ export class AccordionComponent implements OnInit {
       this.ejecucion.exitosos = (100 * this.ejecucion.numRegistrosExitosos) / this.ejecucion.numRegistrosAProcesar;
       this.ejecucion.error = (100 * this.ejecucion.numRegistrosConError) / this.ejecucion.numRegistrosAProcesar;
       this.ejecucion.pendientes = (100 * (this.ejecucion.numRegistrosAProcesar - (this.ejecucion.numRegistrosExitosos +
-      this.ejecucion.numRegistrosConError))) / this.ejecucion.numRegistrosAProcesar;
+        this.ejecucion.numRegistrosConError))) / this.ejecucion.numRegistrosAProcesar;
       /*    console.log('Entro exitosos;' + this.ejecucion.exitosos);
           console.log('Entro error;' + this.ejecucion.error);
           console.log('Entro pendientes;' + this.ejecucion.pendientes);*/
     }
   }
-  getProcesos(consulta: Consulta): Proceso[] {
-    this.procesoService.getProcesos(consulta).then(procesos => this.procesos = procesos);
-    return this.procesos;
+  getProcesos(): void {
+    this.procesoService.getProcesos().then(procesos => this.procesos = procesos);
+    //this.procesoService.getProcesos(consulta).then(procesos => this.procesos = procesos);
+
+  }
+
+  getLog(): void {
+    this.procesoService.getLog().then(logs => this.logs = logs);
+    //this.procesoService.getProcesos(consulta).then(procesos => this.procesos = procesos);
   }
 
   onSelect(proceso: Proceso): void {
@@ -59,7 +69,13 @@ export class AccordionComponent implements OnInit {
     if (proceso.numSecEjecucion[0].exitosos == null) {
       this.calcularProgressBar(proceso.numSecEjecucion);
     }
+    for (let i = 0; i < this.logs.length; i++) {
+      console.log('Entro logs: ' + this.logs[i].compania);
+    }
 
+    for (let i = 0; i < this.procesos.length; i++) {
+      console.log('Entro logs: ' + this.procesos[i].codigoProceso);
+    }
   }
   gotoDetail(proceso: Proceso): void {
     //  this.router.navigate(['/detail', proceso.id]);
@@ -98,4 +114,5 @@ export class AccordionComponent implements OnInit {
     this.registros.push(ejecucion.numRegistrosConError);
     this.registros.push(ejecucion.numRegistrosExitosos);
     return this.registros;
-  }}
+  }
+}

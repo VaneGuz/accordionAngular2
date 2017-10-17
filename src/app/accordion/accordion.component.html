@@ -47,14 +47,13 @@
           </div>-->
         </accordion-group>
       </accordion>
-
     <pagination-controls (pageChange)="p = $event" style="  text-align: center"></pagination-controls>
 
   </div>
 
   <div *ngIf='detalle' class="col-md-6">
     <h3 class="text-center ejecucion">EJECUCIONES</h3>
-    <div *ngFor='let ejecucion of selectedProceso.numSecEjecucion'>
+    <div *ngFor='let ejecucion of selectedProceso.numSecEjecucion | paginate: { itemsPerPage: 5, currentPage: d }'>
       <div class="card">
         <div class="row">
 
@@ -107,14 +106,26 @@
     </div>
   </div>
 
-
   <div *ngIf='log' class="col-md-6">
     <h3 class="text-center ejecucion">LOG DEL PROCESO</h3>
     <div class="card logdiv text-center">
-
+      <table class="table padding-left">
+          <tr >
+              <th style="text-align: center">Poliza</th>
+              <th style="text-align: center">Mensaje de error</th>
+          </tr>
+          <tr *ngFor='let logDetalle of logs.listaLogDetalle | paginate: { itemsPerPage: 5, currentPage: d }' >
+              <td>{{logDetalle.poliza}}</td>
+              <td>{{logDetalle.mensaje}}</td>
+          </tr>
+      </table>
     </div>
+    <pagination-controls (pageChange)="d = $event" style="  text-align: center"></pagination-controls>
+
     <div class="text-center">
+
       <button (click)="close()" class="btn btn-danger ">Cerrar</button>
+
     </div>
 
   </div>

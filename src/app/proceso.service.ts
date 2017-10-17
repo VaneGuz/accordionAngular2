@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Log } from './data/log';
 import { Proceso } from './data/proceso';
 import { Consulta } from './data/consulta';
 import { Headers, Http } from '@angular/http';
@@ -14,16 +15,27 @@ import {
 export class ProcesoService {
   private procesosUrl = 'http://localhost:7001/PlataformaRentas/api/monitor-masivos/consultar-procesos';  // URL to web api
   private procesosMock = 'api/procesos';
+  private logMock = 'api/logs';
 
   constructor(private http: Http) { }
 
   resp: Promise<Proceso[]>;
-  getProcesos(consulta: Consulta): Promise<Proceso[]> {
+
+  getProcesos(): Promise<Proceso[]> {
     return this.http.get(this.procesosMock)
       .toPromise()
       .then(response => response.json().data as Proceso[])
       .catch(this.handleError);
   }
+
+  getLog(): Promise<Log[]> {
+    return this.http.get(this.logMock)
+      .toPromise()
+      .then(response => response.json().data[0] as Log[])
+      .catch(this.handleError);
+      //    .then(response => response.json().data as Log[])
+  }
+
 /*
   getProcesos(consulta:Consulta): Promise<Proceso[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });

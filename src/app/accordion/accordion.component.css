@@ -49,8 +49,6 @@ div.card {
 
 .logdiv {
   width: 100% !important;
-  height: 200px;
-  ;
   vertical-align: middle;
   margin-bottom: 10px;
 }
@@ -94,6 +92,10 @@ display: block;
 
 .panel-group .panel{
   border-radius: 15px !important;
+}
+.padding-left{
+  padding-right: 10px;
+  font-size: 12px !important;
 }
 /* Dentro de la tarjeta padding: 1.25rem;
 /* En la primer tarjeta padding-top: 1.5rem !important; */
