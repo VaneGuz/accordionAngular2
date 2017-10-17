@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Proceso } from '../data/proceso';
-import { PROCESO } from '../mock-proceso';
 import { ProcesoService } from '../proceso.service';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -42,7 +41,7 @@ export class AccordionComponent implements OnInit {
       this.ejecucion.exitosos = (100 * this.ejecucion.numRegistrosExitosos) / this.ejecucion.numRegistrosAProcesar;
       this.ejecucion.error = (100 * this.ejecucion.numRegistrosConError) / this.ejecucion.numRegistrosAProcesar;
       this.ejecucion.pendientes = (100 * (this.ejecucion.numRegistrosAProcesar - (this.ejecucion.numRegistrosExitosos +
-        this.ejecucion.numRegistrosConError))) / this.ejecucion.numRegistrosAProcesar;
+      this.ejecucion.numRegistrosConError))) / this.ejecucion.numRegistrosAProcesar;
       /*    console.log('Entro exitosos;' + this.ejecucion.exitosos);
           console.log('Entro error;' + this.ejecucion.error);
           console.log('Entro pendientes;' + this.ejecucion.pendientes);*/
@@ -97,7 +96,5 @@ export class AccordionComponent implements OnInit {
     this.registros.push(ejecucion.numRegistrosExitosos);
     return this.registros;
   }
-
-
 
 }

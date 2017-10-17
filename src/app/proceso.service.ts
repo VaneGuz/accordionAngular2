@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Proceso } from './data/proceso';
-import { PROCESO } from './mock-proceso';
+//import { PROCESO } from './mock-proceso';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';

@@ -1,4 +1,4 @@
-import { Proceso } from './data/proceso';
+/*import { Proceso } from './data/proceso';
 
 export const PROCESO: Proceso[] = [
   {
@@ -44,3 +44,4 @@ export const PROCESO: Proceso[] = [
     ], numSecProgramacion: '36', dsproceso: 'GENERACION MENSUAL DE RENTAS'
   }
 ];
+*/

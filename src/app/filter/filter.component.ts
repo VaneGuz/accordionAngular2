@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Consulta } from '../data/consulta';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
@@ -11,8 +11,20 @@ export class FilterComponent {
     snProgramado: false,
     snEjecutado: false
   };
+  consulta = new Consulta();
   constructor() {
     this.estadoProceso.snEjecutado = true;
+  }
+  nuevaConsulta() {
+    this.consulta = new Consulta();
+
+    this.onChangeEstadoProceso(1);
+  }
+  consultar() {
+    this.consulta.snEjecutado = this.estadoProceso.snEjecutado;
+    this.consulta.snProgramado= this.estadoProceso.snProgramado;
+    console.log('consulta: ' + JSON.stringify(this.consulta));
+
   }
 
   onChangeEstadoProceso(estado: number) {

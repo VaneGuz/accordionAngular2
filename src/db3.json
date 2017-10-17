@@ -1,7 +1,7 @@
 {
     "13|51": {
         "codigoProceso": "13",
-        "fecha_programacion": null,
+        "fechaProgramacion": null,
         "listaParametros": {
             "CDTIPO_GENERACION_INT": "G",
             "CDRAMOCE": "088",
@@ -165,7 +165,7 @@
     },
     "13|50": {
         "codigoProceso": "13",
-        "fecha_programacion": null,
+        "fechaProgramacion": null,
         "listaParametros": {
             "CDTIPO_GENERACION_INT": "G",
             "CDRAMOCE": "087",
@@ -229,7 +229,7 @@
     },
     "13|49": {
         "codigoProceso": "13",
-        "fecha_programacion": null,
+        "fechaProgramacion": null,
         "listaParametros": {
             "CDTIPO_GENERACION_INT": "G",
             "CDRAMOCE": "093",

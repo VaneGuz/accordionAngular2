@@ -1,71 +1,105 @@
 <div class="row">
   <div class="col-md-{{medida}}">
-    <ul>
-       <accordion>
-         <accordion-group heading="{{proceso.nombreProceso}} - Secuencia: {{proceso.numSecProgramacion}}" *ngFor='let proceso of procesos | paginate: { itemsPerPage: 5, currentPage: p }' (click)="onSelect(proceso)" panelClass="customClass" [isOpen]="isFirstOpen">
-           <div class="col-md-8">
-             <p>Código del Proceso : {{proceso.codigoProceso}}</p>
-             <p>Secuencia de Programación : {{proceso.numSecProgramacion}}</p>
-             <p>Fecha de Programación : {{proceso.fecha_programacion}}</p>
-           </div>
-           <div class="col-md-4 text-center">
-             <button (click)="gotoDetail(proceso)" class="btn btn-primary detailbtn">Ejecuciones</button>
-             <button (click)="gotoLog(proceso)" class="btn btn-danger logbtn">LOG</button>
-           </div>
-         </accordion-group>
-       </accordion>
-   </ul>
-   <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    
+      <accordion style="margin:15px">
+        <accordion-group heading="{{proceso.nombreProceso}} - Secuencia: {{proceso.numSecProgramacion}}" *ngFor='let proceso of procesos | paginate: { itemsPerPage: 5, currentPage: p }' (click)="onSelect(proceso)" panelClass="customClass" [isOpen]="isFirstOpen">
+          <div class="col-md-12">
+            <div class="col-md-4 sinPadding">
+              <p>
+                <span class="negrita"> Código del Proceso: </span>
+                <span>{{proceso.codigoProceso}}</span>
+              </p>
+              <p>
+                <span class="negrita">Secuencia de Programación: </span>
+                <span>{{proceso.numSecProgramacion}}</span>
+              </p>
+              <p>
+                <span class="negrita">Fecha de Programación:</span>
+                <span>{{proceso.fechaProgramacion}}</span>
+              </p>
+            </div>
+
+            <div class="col-md-4">
+              <p>
+                <span class="negrita">Fecha Inicio Proceso: </span>
+                <span>{{proceso.fechaInicioProceso}}</span>
+              </p>
+              <p>
+                <span class="negrita">Fecha Fin Proceso: </span>
+                <span>{{proceso.fechaFinProceso}}</span>
+              </p>
+              <p>
+                <span class="negrita">Número de registros Log: </span>
+                <span>{{proceso.numRegLog}}</span>
+              </p>
+            </div>
+            <div class="col-md-4 text-center">
+              <button (click)="gotoDetail(proceso)" class="btn btn-primary detailbtn">Ejecuciones</button>
+              <button (click)="gotoLog(proceso)" class="btn btn-danger logbtn">LOG</button>
+            </div>
+          </div>
+          <!-- En este lugar debe ir la lista de parametros
+         <div class="col-md-12">
+            <span class="negrita">Lista de parámetros: </span>
+            <span *ngFor='let parametro of proceso.listaParametros'>
+              <span > {{parametro.clave}}</span>
+              <span> </span>
+            </span>
+          </div>-->
+        </accordion-group>
+      </accordion>
+
+    <pagination-controls (pageChange)="p = $event" style="  text-align: center"></pagination-controls>
+
   </div>
 
   <div *ngIf='detalle' class="col-md-6">
     <h3 class="text-center ejecucion">EJECUCIONES</h3>
-    <div *ngFor='let ejecucion of selectedProceso.numSecEjecucion' >
+    <div *ngFor='let ejecucion of selectedProceso.numSecEjecucion'>
       <div class="card">
-        <div>
-          <div class="col-md-4">
-            <p>Codigo de Entidad: {{ejecucion.codigoEntidad}}</p>
+        <div class="row">
+
+            <div class="column">
+              <p>
+                <span class="negrita">Codigo de Entidad: </span>
+                <span>{{ejecucion.codigoEntidad}}</span>
+              </p>
+              <p>
+                <span class="negrita">Codigo de Estado: </span>
+                <span>{{ejecucion.codigoEstado}}</span>
+              </p>
+              <p>
+                <span class="negrita">Ejecuta: </span>
+                <span>{{ejecucion.dsLoginEjecuta}}</span>
+              </p>
+            </div>
+            <div class="column">
+
+              <p>
+                <span class="negrita">Fecha inicio de ejecución: </span>
+                <span>{{ejecucion.fechaInicioEjecucion}}</span>
+              </p>
+              <p>
+                <span class="negrita">Fecha fin de ejecución: </span>
+                <span>{{ejecucion.fechaFinEjecucion}}</span>
+              </p>
+              <p>
+                <span class="negrita">Total de registros: </span>
+                <span>{{ejecucion.numRegistrosAProcesar}}</span>
+              </p>
           </div>
-          <div class="col-md-4">
-            <p>Codigo de Estado:{{ejecucion.codigoEstado}}</p>
-          </div>
-          <div class="col-md-4">
-            <p>Ejecuta: {{ejecucion.dsLoginEjecuta}}</p>
-          </div>
-        </div>
-        <div>
-          <div class="col-md-6">
-            <p>Fecha inicio de ejecución: {{ejecucion.fechaInicioEjecucion}}</p>
-          </div>
-          <div class="col-md-6">
-            <p>Fecha fin de ejecución: {{ejecucion.fechaFinEjecucion}}</p>
-          </div>
-        </div>
-        <div>
-          <p>Registros a procesar: {{ejecucion.numRegistrosAProcesar}}</p>
-        </div>
-        <div>
-          <p>Registros exitosos: {{ejecucion.numRegistrosExitosos}}</p>
-          <p>Registros con error: {{ejecucion.numRegistrosConError}}</p>
         </div>
         <!-- PROGRESS BAR -->
-
-        <!-- PROGRESS BAR -->
-
-      <div class="progress">
-          <div class="progress-bar progress-bar-success" role="progressbar"  [ngStyle]="{'width' : ejecucion.exitosos +'%'}"> {{ejecucion.numRegistrosExitosos}}
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" [ngStyle]="{'width' : ejecucion.exitosos +'%'}"> {{ejecucion.numRegistrosExitosos}}
 
           </div>
-          <div class="progress-bar progress-bar-warning" role="progressbar" [ngStyle]="{'width' : ejecucion.pendientes +'%'}">{{ejecucion.numRegistrosAProcesar - (ejecucion.numRegistrosExitosos+  ejecucion.numRegistrosConError)}}
+          <div class="progress-bar progress-bar-warning" role="progressbar" [ngStyle]="{'width' : ejecucion.pendientes +'%'}">{{ejecucion.numRegistrosAProcesar - (ejecucion.numRegistrosExitosos+ ejecucion.numRegistrosConError)}}
 
           </div>
           <div class="progress-bar progress-bar-danger" role="progressbar" [ngStyle]="{'width' : ejecucion.error +'%'}">{{ejecucion.numRegistrosConError}}
 
           </div>
         </div>
-
-        <!-- PROGRESS BAR -->
       </div>
     </div>
     <div class="text-center">
