@@ -1,30 +1,44 @@
 import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
+import { Proceso } from '../data/proceso';
 import { Consulta } from '../data/consulta';
+import { AccordionComponent } from '../accordion/accordion.component';
+
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css']
 })
-export class FilterComponent {
+export class FilterComponent implements OnInit {
   title = 'Filter Component';
   estadoProceso = {
     snProgramado: false,
     snEjecutado: false
   };
-  consulta = new Consulta();
-  constructor() {
+  accordionComponent: AccordionComponent;
+  consultaOutput = new Consulta();
+  procesos: Proceso[];
+  fechaActual = new Date();
+  fechaAnterior = new Date();
+  ngOnInit(): void {
     this.estadoProceso.snEjecutado = true;
+    this.fechaActual = new Date();
+    //console.log('Fecha actual' + this.fechaActual.toLocaleDateString());
+    this.fechaAnterior.setDate(this.fechaActual.getDate() - 2);
+  //  console.log('Fecha actual + 1: ' + this.fechaAnterior.toLocaleDateString()); //15/10/2017
+    this.consultar();
   }
+  constructor() { }
   nuevaConsulta() {
-    this.consulta = new Consulta();
-
+    this.consultaOutput = new Consulta();
     this.onChangeEstadoProceso(1);
   }
   consultar() {
-    this.consulta.snEjecutado = this.estadoProceso.snEjecutado;
-    this.consulta.snProgramado= this.estadoProceso.snProgramado;
-    console.log('consulta: ' + JSON.stringify(this.consulta));
-
+    this.consultaOutput.snEjecutado = this.estadoProceso.snEjecutado;
+    this.consultaOutput.snProgramado = this.estadoProceso.snProgramado;
+    this.consultaOutput.fechaInicio = this.fechaAnterior.toLocaleDateString();
+    this.consultaOutput.fechaFin = this.fechaActual.toLocaleDateString();
+    //console.log('consulta: ' + JSON.stringify(this.consultaOutput));
   }
 
   onChangeEstadoProceso(estado: number) {

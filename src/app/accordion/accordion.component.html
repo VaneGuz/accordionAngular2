@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-{{medida}}">
-      <accordion style="margin:15px">
+      <accordion style="vorder:15px">
         <accordion-group heading="{{proceso.nombreProceso}} - Secuencia: {{proceso.numSecProgramacion}}" *ngFor='let proceso of procesos | paginate: { itemsPerPage: 5, currentPage: p }' (click)="onSelect(proceso)" panelClass="customClass" [isOpen]="isFirstOpen">
           <div class="col-md-12">
             <div class="col-md-4 sinPadding">

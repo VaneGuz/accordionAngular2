@@ -4,9 +4,9 @@
     <form  #filterForm="ngForm">
     <div class="col-md-7">
       <span class="negrita" >Fecha inicio:</span>
-      <input type="date" id="fechaInicio"  [(ngModel)]="consulta.fechaInicio" name="fechaInicio"> {{consulta.fechaInicio}}
+      <input type="date" id="fechaInicio"  [(ngModel)]="consultaOutput.fechaInicio" name="fechaInicio"> {{consultaOutput.fechaInicio}}
       <span class="negrita" style="padding:10px">Fecha fin: </span>
-      <input type="date" id="fechaInicio"  [(ngModel)]="consulta.fechaFin" name="fechaFin">{{consulta.fechaFin}}
+      <input type="date" id="fechaInicio"  [(ngModel)]="consultaOutput.fechaFin" name="fechaFin">{{consultaOutput.fechaFin}}
     </div>
     <div class="col-md-3">
       <input name="options" ng-control="options" type="radio" [checked]="true" (click)="onChangeEstadoProceso(1)" > Ejecutado
@@ -19,3 +19,4 @@
   </form>
   </div>
 </div>
+<app-accordion [consulta]='consultaOutput' class='tarjeta'></app-accordion>

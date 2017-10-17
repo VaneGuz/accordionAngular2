@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Proceso } from '../data/proceso';
+import { Consulta } from '../data/consulta';
 import { ProcesoService } from '../proceso.service';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,6 +14,7 @@ import { SecEjecucion } from '../data/secEjecucion';
   providers: [ProcesoService]
 })
 export class AccordionComponent implements OnInit {
+  @Input() consulta: Consulta;
   title = 'Accordion Component';
   procesos: Proceso[];
   selectedProceso: Proceso;
@@ -29,9 +31,9 @@ export class AccordionComponent implements OnInit {
     warning: 30,
     danger: 10
   };
-  constructor(private router: Router, private procesoService: ProcesoService) { }
+  constructor(private router: Router, private procesoService: ProcesoService) {}
   ngOnInit(): void {
-    this.getProcesos();
+   this.getProcesos();
   }
 
   calcularProgressBar(ejecuciones: SecEjecucion[]) {
@@ -47,8 +49,9 @@ export class AccordionComponent implements OnInit {
           console.log('Entro pendientes;' + this.ejecucion.pendientes);*/
     }
   }
-  getProcesos(): void {
+  getProcesos(): Proceso[] {
     this.procesoService.getProcesos().then(procesos => this.procesos = procesos);
+    return this.procesos;
   }
 
   onSelect(proceso: Proceso): void {
@@ -95,6 +98,4 @@ export class AccordionComponent implements OnInit {
     this.registros.push(ejecucion.numRegistrosConError);
     this.registros.push(ejecucion.numRegistrosExitosos);
     return this.registros;
-  }
-
-}
+  }}
