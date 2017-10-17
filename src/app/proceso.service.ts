@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Proceso } from './data/proceso';
+import { Consulta } from './data/consulta';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
@@ -17,17 +18,17 @@ export class ProcesoService {
   constructor(private http: Http) { }
 
   resp: Promise<Proceso[]>;
-  getProcesos(): Promise<Proceso[]> {
+  getProcesos(consulta: Consulta): Promise<Proceso[]> {
     return this.http.get(this.procesosMock)
       .toPromise()
       .then(response => response.json().data as Proceso[])
       .catch(this.handleError);
   }
-
-  /*getProcesos(): Promise<Proceso[]> {
+/*
+  getProcesos(consulta:Consulta): Promise<Proceso[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    this.resp = this.http.post(this.procesosUrl, null, options).toPromise()
+    this.resp = this.http.post(this.procesosUrl, JSON.stringify(consulta) , options).toPromise()
       .then(response => response.json() as Proceso[])
       .catch(this.handleError);
     console.log('Post ejecutado');

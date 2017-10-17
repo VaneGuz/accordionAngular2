@@ -33,7 +33,7 @@ export class AccordionComponent implements OnInit {
   };
   constructor(private router: Router, private procesoService: ProcesoService) {}
   ngOnInit(): void {
-   this.getProcesos();
+   this.getProcesos(this.consulta);
   }
 
   calcularProgressBar(ejecuciones: SecEjecucion[]) {
@@ -49,8 +49,8 @@ export class AccordionComponent implements OnInit {
           console.log('Entro pendientes;' + this.ejecucion.pendientes);*/
     }
   }
-  getProcesos(): Proceso[] {
-    this.procesoService.getProcesos().then(procesos => this.procesos = procesos);
+  getProcesos(consulta: Consulta): Proceso[] {
+    this.procesoService.getProcesos(consulta).then(procesos => this.procesos = procesos);
     return this.procesos;
   }
 
