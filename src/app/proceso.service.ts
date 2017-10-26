@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Log } from './data/log';
 import { Proceso } from './data/proceso';
 import { Consulta } from './data/consulta';
+import { ConsultaLog } from './data/consultaLog';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
@@ -13,13 +14,15 @@ import {
 
 @Injectable()
 export class ProcesoService {
-  private procesosUrl = 'http://localhost:7001/PlataformaRentas/api/monitor-masivos/consultar-procesos';  // URL to web api
+  private procesosUrl = 'http://localhost:7001/PlataformaRentas/api/monitor-masivos/consultar-procesos-con-filtro';  // URL to web api
+  private logProcesosUrl = 'http://localhost:7001/PlataformaRentas/api/monitor-masivos/consultar-log';  // URL to web api
   private procesosMock = 'api/procesos';
   private logMock = 'api/logs';
 
   constructor(private http: Http) { }
 
   resp: Promise<Proceso[]>;
+  respLog: Promise<Log[]>;
 
   getProcesos(): Promise<Proceso[]> {
     return this.http.get(this.procesosMock)
@@ -28,6 +31,7 @@ export class ProcesoService {
       .catch(this.handleError);
   }
 
+/*
   getLog(): Promise<Log[]> {
     return this.http.get(this.logMock)
       .toPromise()
@@ -35,18 +39,33 @@ export class ProcesoService {
       .catch(this.handleError);
       //    .then(response => response.json().data as Log[])
   }
-
+*/
 /*
   getProcesos(consulta:Consulta): Promise<Proceso[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
+    console.log('JSON: ');
+    console.log(JSON.stringify(consulta));
     let options = new RequestOptions({ headers: headers });
     this.resp = this.http.post(this.procesosUrl, JSON.stringify(consulta) , options).toPromise()
       .then(response => response.json() as Proceso[])
       .catch(this.handleError);
     console.log('Post ejecutado');
-
     return this.resp;
-  }*/
+  }
+*/
+  getLog(consultaLog: ConsultaLog): Promise<Log[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    console.log('JSON: ');
+    console.log(JSON.stringify(consultaLog));
+    let options = new RequestOptions({ headers: headers });
+    this.respLog = this.http.post(this.logProcesosUrl, JSON.stringify(consultaLog) , options).toPromise()
+      .then(response => response.json() as Log[])
+      .catch(this.handleError);
+    console.log('Post ejecutado');
+
+    return this.respLog;
+  }
+
   /*
     getProcesos(): Observable<Proceso[]> {
       let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -71,12 +90,13 @@ export class ProcesoService {
     return Promise.reject(error.message || error);
   }
 
-  getProcesoSlowly(): Promise<Proceso[]> {
+  /*getProcesoSlowly(): Promise<Proceso[]> {
     return new Promise(resolve => {
       // Simulate server latency with 2 second delay
       setTimeout(() => resolve(this.getProcesos()), 2000);
     });
   }
+  */
 
 
   getProceso(id: number): Promise<Proceso> {

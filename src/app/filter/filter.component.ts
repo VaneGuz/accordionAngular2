@@ -38,6 +38,7 @@ export class FilterComponent implements OnInit {
     this.consultaOutput.snProgramado = this.estadoProceso.snProgramado;
     this.consultaOutput.fechaInicio = this.fechaAnterior.toLocaleDateString();
     this.consultaOutput.fechaFin = this.fechaActual.toLocaleDateString();
+    this.consultaOutput.codigoProceso = null;
     //console.log('consulta: ' + JSON.stringify(this.consultaOutput));
   }
 

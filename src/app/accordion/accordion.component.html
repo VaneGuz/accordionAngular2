@@ -18,7 +18,7 @@
               </p>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4" *ngIf='deshabilitar'>
               <p>
                 <span class="negrita">Fecha Inicio Proceso: </span>
                 <span>{{proceso.fechaInicioProceso}}</span>
@@ -33,8 +33,8 @@
               </p>
             </div>
             <div class="col-md-4 text-center">
-              <button (click)="gotoDetail(proceso)" class="btn btn-primary detailbtn">Ejecuciones</button>
-              <button (click)="gotoLog(proceso)" class="btn btn-danger logbtn">LOG</button>
+              <button *ngIf='deshabilitar' (click)="gotoDetail(proceso)" class="btn btn-primary detailbtn">Ejecuciones</button>
+              <button *ngIf='deshabilitar'(click)="gotoLog(proceso)" class="btn btn-danger logbtn">LOG</button>
             </div>
           </div>
           <!-- En este lugar debe ir la lista de parametros
@@ -47,8 +47,9 @@
           </div>-->
         </accordion-group>
       </accordion>
+<div class='paginador'>
     <pagination-controls (pageChange)="p = $event" style="  text-align: center"></pagination-controls>
-
+</div>
   </div>
 
   <div *ngIf='detalle' class="col-md-6">

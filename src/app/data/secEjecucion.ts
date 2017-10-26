@@ -2,8 +2,8 @@ export class SecEjecucion {
   codigoEntidad: string;
   codigoEstado: string;
   dsLoginEjecuta: string;
-  fechaInicioEjecucion: number;
-  fechaFinEjecucion: number;
+  fechaInicioEjecucion: string;
+  fechaFinEjecucion: string;
   numRegistrosAProcesar: number;
   numRegistrosConError: number;
   numRegistrosExitosos: number;
